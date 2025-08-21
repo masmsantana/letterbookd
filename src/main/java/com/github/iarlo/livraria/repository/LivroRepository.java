@@ -1,5 +1,7 @@
 package com.github.iarlo.livraria.repository;
 
-public class LivroRepository extends BaseRepository<String, String> {
+import com.github.iarlo.livraria.model.Livro;
+
+public class LivroRepository extends BaseRepository<String, Livro> {
 
 }
