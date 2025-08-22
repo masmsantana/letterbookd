@@ -1,11 +1,51 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Livraria</title>
+    <link rel="stylesheet" href="https://unpkg.com/modern-normalize@3.0.1/modern-normalize.css">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="../static/estilos.css">
+    <title>📚 letterbookd</title>
 </head>
+
 <body>
-    <p th:text="|teste, ${name}!|"></p>
+    <aside>
+        <h1>📚 letterbookd</h1>
+        <span>links rápidos</span>
+        <a href="/adicionar">adicionar livro</a>
+        <a href="/editar">modificar livro</a>
+        <a href="/excluir">excluir livro</a>
+        <a href="/lista">visualizar lista</a>
+        <a href="/editar-lista">editar lista</a>
+    </aside>
+    <main>
+        <section>
+            <h2>Últimos livros lidos</h2>
+            <ol th:each="livro : ${livroslidos}">
+                <li>
+                    <article th:text="${livro.titulo}"></article>
+                </li>
+            </ol>
+        </section>
+        <section>
+            <h2>Minha lista</h2>
+            <ol th:each="livro : ${livroslista}">
+                <li>
+                    <article th:text="${livro.titulo}"></article>
+                </li>
+            </ol>
+        </section>
+        <section>
+            <h2>Últimos livros adicionados</h2>
+            <ol th:each="livro : ${livrosadicionados}">
+                <li>
+                    <article th:text="${livro.titulo}"></article>
+                </li>
+            </ol>
+        </section>
+    </main>
 </body>
+
 </html>
