@@ -23,8 +23,8 @@ public class LivrariaController {
     @GetMapping
     public String listarLivros(Model model) {
         List<Livro> livros = livrariaService.listarTodos();
-        model.addAttribute("livros", livros);
-        return "lista-livros";
+        model.addAttribute("livroslidos", livros);
+        return "index";
     }
 
     // Adicionar livro (GET para exibir formulário)
@@ -37,7 +37,7 @@ public class LivrariaController {
     @PostMapping
     public String adicionarLivro(@ModelAttribute Livro livro) {
         livrariaService.adicionar(livro);
-        return "redirect:/livros";
+        return "redirect:/";
     }
 
     // Editar livro

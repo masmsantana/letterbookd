@@ -22,7 +22,7 @@
         <a href="/editar-lista">editar lista</a>
     </aside>
     <main>
-        <form>
+        <form th:action="@{/livros}" th:object="${livro}" method="post">
             <input type="text" placeholder="Título" name="titulo" required>
             <input type="text" placeholder="Autor" name="autor" required>
             <textarea title="Descrição" placeholder="Descrição" name="descricao"></textarea>
