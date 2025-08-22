@@ -24,25 +24,25 @@
     <main>
         <section>
             <h2>Últimos livros lidos</h2>
-            <ol th:each="livro : ${livroslidos}">
-                <li>
-                    <article th:text="${livro.titulo}"></article>
+            <ol>
+                <li th:each="livro : ${livroslidos}">
+                    <article><span id="titulo" th:text="${livro.titulo}" />, <span id="autor" th:text="${livro.autor}" /></article>
                 </li>
             </ol>
         </section>
         <section>
             <h2>Minha lista</h2>
-            <ol th:each="livro : ${livroslista}">
-                <li>
-                    <article th:text="${livro.titulo}"></article>
+            <ol>
+                <li th:each="livro : ${livroslista}">
+                    <article><span id="titulo" th:text="${livro.titulo}" />, <span id="autor" th:text="${livro.autor}" /></article>
                 </li>
             </ol>
         </section>
         <section>
             <h2>Últimos livros adicionados</h2>
-            <ol th:each="livro : ${livrosadicionados}">
-                <li>
-                    <article th:text="${livro.titulo}"></article>
+            <ol>
+                <li th:each="livro : ${livrosadicionados}">
+                    <article><span id="titulo" th:text="${livro.titulo}" />, <span id="autor" th:text="${livro.autor}" /></article>
                 </li>
             </ol>
         </section>

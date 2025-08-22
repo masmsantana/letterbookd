@@ -5,14 +5,13 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
     background-color: #FFFFF5;
+    padding: 2em;
     color: #333;
     display: flex;
     justify-content: center;
     flex-direction: row;
     width: 100%;
-    margin-top: 24px;
     gap: 48px;
 }
 
@@ -94,4 +93,13 @@ button {
     font-weight: bold;
     cursor: pointer;
     font-size: 1em;
+}
+
+span#titulo,
+span#autor {
+    text-transform: capitalize;
+}
+
+span#titulo {
+    font-weight: 600;
 }
