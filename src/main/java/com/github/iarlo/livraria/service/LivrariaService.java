@@ -1,33 +1,33 @@
 package com.github.iarlo.livraria.service;
 
-import com.github.iarlo.livraria.model.Livro;
-import com.github.iarlo.livraria.repository.LivroRepository;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
+
+import org.springframework.stereotype.Service;
+
+import com.github.iarlo.livraria.model.Livro;
+import com.github.iarlo.livraria.repository.LivroRepository;
 
 @Service
 public class LivrariaService {
 
-    private final LivroRepository livroRepository = new LivroRepository();
+    private final LivroRepository livroRepository = LivroRepository.pegarInstancia();
     private final AtomicInteger geradorId = new AtomicInteger(1);
 
     public List<Livro> listarTodos() {
         return livroRepository.buscarTodos();
     }
 
-    
     public Livro buscarPorId(int id) {
         return livroRepository.buscarPorId(id);
     }
 
     public Livro adicionar(Livro livro) {
-        validarLivro(livro); 
-        verificarDuplo(livro); 
+        validarLivro(livro);
+        verificarDuplo(livro);
 
         int id = geradorId.getAndIncrement();
-        livroRepository.editar(id, livro); 
+        livroRepository.editar(id, livro);
         return livro;
     }
 
@@ -61,11 +61,11 @@ public class LivrariaService {
     // EVITA DUPLICAÇÃO DE LIVRO
     private void verificarDuplo(Livro livro) {
         boolean existe = livroRepository.buscarTodos().stream()
-            .anyMatch(l -> l.getTitulo().equalsIgnoreCase(livro.getTitulo())
-                        && l.getAutor().equalsIgnoreCase(livro.getAutor()));
+                .anyMatch(l -> l.getTitulo().equalsIgnoreCase(livro.getTitulo())
+                && l.getAutor().equalsIgnoreCase(livro.getAutor()));
         if (existe) {
-            throw new IllegalArgumentException("Livro já cadastrado: " 
-                                               + livro.getTitulo() + " - " + livro.getAutor());
+            throw new IllegalArgumentException("Livro já cadastrado: "
+                    + livro.getTitulo() + " - " + livro.getAutor());
         }
     }
 }
