@@ -1,9 +1,16 @@
 package com.github.iarlo.livraria.controller;
 
+import com.github.iarlo.livraria.model.Livro;
+import com.github.iarlo.livraria.service.ListaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/listas")
@@ -27,12 +34,18 @@ public class ListaController {
         return "lista-leitura"; // Nome da view para exibir lista de leitura
     }
 
-    public String adicionarLivroLido(){
-        return; //
+    // 3. Adicionar livro lido
+    @PostMapping("/lidos")
+    public String adicionarLivroLido(@ModelAttribute Livro livro){
+        listaService.adicionarLivroLido(livro);
+        return "redirect:/listas/lidos";
     }
-
-    public String adicionarLivroListaDeLeitura (){
-        return;
+    
+    // 4. Adicionar livro à lista de leitura
+    @PostMapping("/leitura")
+    public String adicionarLivroListaDeLeitura (@ModelAttribute Livro livro){
+        listaService.adicionarLivroListaLeitura(livro);
+        return "redirect:/listas/leitura";
     }
 
 }
