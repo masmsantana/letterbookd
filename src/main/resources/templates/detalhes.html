@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://unpkg.com/modern-normalize@3.0.1/modern-normalize.css" />
+  <link rel="stylesheet" href="/estilos.css" />
+  <link rel="stylesheet" href="../static/estilos.css" />
+  <title>📚 letterbookd</title>
+</head>
+
+<body>
+  <aside>
+    <h1>📚 letterbookd</h1>
+    <span>links rápidos</span>
+    <a href="/">página inicial</a>
+    <a href="/livros/adicionar">adicionar livro</a>
+    <a href="/editar">modificar livro</a>
+    <a href="/excluir">excluir livro</a>
+    <a href="/lista">visualizar lista</a>
+    <a href="/editar-lista">editar lista</a>
+  </aside>
+  <main>
+    <section>
+      <article>
+        <section class="livro-section">
+          <div>
+            <h3 id="titulo" th:text="${livro.titulo}">Título do livro</h3>
+            <span id="autor" th:text="${livro.autor}" />
+          </div>
+          <div class="livro-acoes">
+            <a th:href="@{'/lista/' + ${livro.id}}">avaliar</a>
+            <a th:href="@{'/livros/editar/' + ${livro.id}}">editar</a>
+            <a th:href="@{'/livros/excluir/' + ${livro.id}}" id="excluir">excluir</a>
+          </div>
+        </section>
+        <section>
+          <p th:text="${#strings.isEmpty(livro.descricao) ? 'Sem descrição' : livro.descricao}"></p>
+        </section>
+        <section>
+          <h4>Avaliações</h4>
+          <ul>
+            <!-- <li th:each="comentario : ${livro.comentarios}" th:text="${comentario.texto}"></li> -->
+          </ul>
+        </section>
+      </article>
+    </section>
+  </main>
+</body>
+
+</html>

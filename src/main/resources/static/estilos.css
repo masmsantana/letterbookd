@@ -103,3 +103,25 @@ span#autor {
 span#titulo {
     font-weight: 600;
 }
+
+a.livro {
+    color:#00347c;
+}
+
+.livro-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.livro-acoes {
+    display: flex;
+    flex-direction: row;
+    font-size: large;
+    gap: 1em;
+}
+
+#excluir {
+    color: #b90000;
+}

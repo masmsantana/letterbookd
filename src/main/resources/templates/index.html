@@ -26,7 +26,9 @@
             <h2>Últimos livros lidos</h2>
             <ol>
                 <li th:each="livro : ${livroslidos}">
-                    <article><span id="titulo" th:text="${livro.titulo}" />, <span id="autor" th:text="${livro.autor}" /></article>
+                    <article>
+                        <span id="titulo" th:text="${livro.titulo}" />, <span id="autor" th:text="${livro.autor}" />
+                    </article>
                 </li>
             </ol>
         </section>
@@ -34,7 +36,8 @@
             <h2>Minha lista</h2>
             <ol>
                 <li th:each="livro : ${livroslista}">
-                    <article><span id="titulo" th:text="${livro.titulo}" />, <span id="autor" th:text="${livro.autor}" /></article>
+                    <article><span id="titulo" th:text="${livro.titulo}" />, <span id="autor"
+                            th:text="${livro.autor}" /></article>
                 </li>
             </ol>
         </section>
@@ -42,7 +45,9 @@
             <h2>Últimos livros adicionados</h2>
             <ol>
                 <li th:each="livro : ${livrosadicionados}">
-                    <article><span id="titulo" th:text="${livro.titulo}" />, <span id="autor" th:text="${livro.autor}" /></article>
+                    <a th:href="@{'/livros/' + ${livro.id}}" class="livro">
+                        <span id="titulo" th:text="${livro.titulo}" />, <span id="autor" th:text="${livro.autor}" />
+                    </a>
                 </li>
             </ol>
         </section>

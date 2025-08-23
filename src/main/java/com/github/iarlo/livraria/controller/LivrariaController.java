@@ -67,6 +67,6 @@ public class LivrariaController {
     public String visualizarDetalhes(@PathVariable int id, Model model) {
         Livro livro = livrariaService.buscarPorId(id);
         model.addAttribute("livro", livro);
-        return "detalhes-livro";
+        return "detalhes";
     }
 }
