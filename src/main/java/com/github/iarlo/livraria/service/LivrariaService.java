@@ -68,4 +68,13 @@ public class LivrariaService {
                     + livro.getTitulo() + " - " + livro.getAutor());
         }
     }
+
+    public void adicionarReview(int livroId, Review review) {
+        Livro livro = livroRepository.buscarPorId(livroId);
+        if (livro != null) {
+            livro.addReview(review);       // Método helper do Livro
+        } else {
+            throw new RuntimeException("Livro não encontrado!");
+        }
+    }
 }
