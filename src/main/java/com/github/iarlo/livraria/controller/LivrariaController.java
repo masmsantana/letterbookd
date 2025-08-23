@@ -56,10 +56,10 @@ public class LivrariaController {
     }
 
     // Excluir livro
-    @GetMapping("/delete/{id}")
+    @GetMapping("/excluir/{id}")
     public String excluirLivro(@PathVariable int id) {
         livrariaService.excluir(id);
-        return "redirect:/livros";
+        return "redirect:/";
     }
 
     // Visualizar detalhes
