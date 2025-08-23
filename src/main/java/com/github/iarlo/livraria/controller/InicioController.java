@@ -5,6 +5,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.ui.Model;
 import com.github.iarlo.livraria.model.Livro;
 import com.github.iarlo.livraria.service.LivrariaService;
+
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -16,7 +19,10 @@ public class InicioController {
     public String index(Model model) {
         List<Livro> livroslidos = livrariaService.listarTodos();
         List<Livro> livroslista = livrariaService.listarTodos();
-        List<Livro> livrosaicionados = livrariaService.listarTodos();
+
+        // Vamos reverter a ordem da lista para exibir os livros mais recentes primeiro
+        List<Livro> livrosaicionados = new ArrayList<>(livrariaService.listarTodos());
+        Collections.reverse(livrosaicionados);
 
         model.addAttribute("livroslidos", livroslidos);
         model.addAttribute("livroslista", livroslista);
