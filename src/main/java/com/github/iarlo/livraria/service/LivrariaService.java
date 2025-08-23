@@ -28,6 +28,7 @@ public class LivrariaService {
         verificarDuplo(livro);
 
         int id = geradorId.getAndIncrement();
+        livro.setId(id);
         livroRepository.editar(id, livro);
         return livro;
     }
