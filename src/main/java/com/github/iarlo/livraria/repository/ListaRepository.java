@@ -12,22 +12,22 @@ import com.github.iarlo.livraria.model.Lista;
  */
 public class ListaRepository extends BaseRepository<Lista> {
 
-  private static ListaRepository instancia;
+    private static ListaRepository instancia;
 
-  /**
-   * Se a instancia já tiver sido definida, retorna ela, se não, cria uma nova
-   */
-  public static ListaRepository pegarInstancia() {
-    if (instancia == null) {
-      instancia = new ListaRepository();
+    /**
+     * Se a instancia já tiver sido definida, retorna ela, se não, cria uma nova
+     */
+    public static ListaRepository pegarInstancia() {
+        if (instancia == null) {
+            instancia = new ListaRepository();
+        }
+        return instancia;
     }
-    return instancia;
-  }
 
-  /**
-   * O constructor privado serve pra impedir que a classe seja acessada
-   * diretamente
-   */
-  private ListaRepository() {
-  }
+    /**
+     * O constructor privado serve pra impedir que a classe seja acessada
+     * diretamente
+     */
+    private ListaRepository() {
+    }
 }
