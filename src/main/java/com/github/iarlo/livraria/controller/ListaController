@@ -1,0 +1,29 @@
+package com.github.iarlo.livraria.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/listas")
+public class ListaController {
+    @Autowired
+    private ListaService listaService;
+
+    public String listarLivrosLidos (Model model) {
+        return; // Nome da view para exibir livros lidos
+    }
+
+    public String listarLivrosListaDeLeitura(Model model) {
+        return; // Nome da view para exibir lista de leitura
+    }
+
+    public String adicionarLivroLido(){
+        return; //
+    }
+
+    public String adicionarLivroListaDeLeitura (){
+        return;
+    }
+
+}
