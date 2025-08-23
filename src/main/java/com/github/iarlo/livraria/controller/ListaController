@@ -2,6 +2,7 @@ package com.github.iarlo.livraria.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -10,12 +11,20 @@ public class ListaController {
     @Autowired
     private ListaService listaService;
 
+    // 1. Listar livros lidos
+    @GetMapping("/lidos")
     public String listarLivrosLidos (Model model) {
-        return; // Nome da view para exibir livros lidos
+        List<Livro> livrosLidos = listaService.listarLivrosLidos();
+        model.addAttribute("livrosLidos", livrosLidos);
+        return "lista-livros-lidos"; // Nome da view para exibir livros lidos
     }
 
+    // 2. Listar livros da lista de leitura
+    @GetMapping("/leitura")
     public String listarLivrosListaDeLeitura(Model model) {
-        return; // Nome da view para exibir lista de leitura
+        List<Livro> livrosParaLer = listaService.listarLivrosListaLeitura();
+        model.addAttribute("livrosParaLer", livrosParaLer);
+        return "lista-leitura"; // Nome da view para exibir lista de leitura
     }
 
     public String adicionarLivroLido(){
