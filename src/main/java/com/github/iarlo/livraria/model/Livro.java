@@ -1,12 +1,15 @@
 package com.github.iarlo.livraria.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Livro extends BaseModel {
 
     private String titulo;
     private String autor;
     private String descricao;
     private List<Review> reviews = new ArrayList<>();
-    
+
     public Livro(String titulo, String autor, String descricao) {
         this.titulo = titulo;
         this.autor = autor;
@@ -42,6 +45,6 @@ public class Livro extends BaseModel {
     }
 
     public void addReview(Review review) {
-    this.reviews.add(review);
+        this.reviews.add(review);
     }
 }

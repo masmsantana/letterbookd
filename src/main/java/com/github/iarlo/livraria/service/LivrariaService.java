@@ -6,6 +6,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.springframework.stereotype.Service;
 
 import com.github.iarlo.livraria.model.Livro;
+import com.github.iarlo.livraria.model.Review;
 import com.github.iarlo.livraria.repository.LivroRepository;
 
 @Service
@@ -62,7 +63,7 @@ public class LivrariaService {
     private void verificarDuplo(Livro livro) {
         boolean existe = livroRepository.buscarTodos().stream()
                 .anyMatch(l -> l.getTitulo().equalsIgnoreCase(livro.getTitulo())
-                && l.getAutor().equalsIgnoreCase(livro.getAutor()));
+                        && l.getAutor().equalsIgnoreCase(livro.getAutor()));
         if (existe) {
             throw new IllegalArgumentException("Livro já cadastrado: "
                     + livro.getTitulo() + " - " + livro.getAutor());
@@ -72,7 +73,7 @@ public class LivrariaService {
     public void adicionarReview(int livroId, Review review) {
         Livro livro = livroRepository.buscarPorId(livroId);
         if (livro != null) {
-            livro.addReview(review);       // Método helper do Livro
+            livro.addReview(review); // Método helper do Livro
         } else {
             throw new RuntimeException("Livro não encontrado!");
         }

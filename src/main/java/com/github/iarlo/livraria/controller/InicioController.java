@@ -23,7 +23,6 @@ public class InicioController {
         model.addAttribute("livrosadicionados", livrosaicionados);
 
         return "index";
-
     }
 
 }
